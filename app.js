@@ -14,11 +14,11 @@ require("./config/db.config");
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 app.use("/api/books", bookRoutes);
-app.use("/api/", memberRoutes);
+app.use("/api/members", memberRoutes);
 app.use("/api/", borrowedBookRoutes);
  
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Server running on port ${process.env.PORT || 3000}`);
 });
  
-module.exports = app;
+module.exports = app; 

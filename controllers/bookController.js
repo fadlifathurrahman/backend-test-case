@@ -1,6 +1,35 @@
 const Book = require("../models/book.model");
 const { Op } = require("sequelize");
 
+// Get all books
+exports.getAllBooks = async (req, res) => {
+  try {
+    const books = await Book.findAll({
+      where: {
+        deleted_at: null,
+      },
+    });
+    res.status(200).json(books);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+// Get a single book by ID
+exports.getBookById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const book = await Book.findByPk(id);
+    if (book) {
+      res.status(200).json(book);
+    } else {
+      res.status(404).json({ message: "Book not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 // Create a new book
 exports.addBook = async (req, res) => {
   try {
@@ -28,39 +57,11 @@ exports.addBook = async (req, res) => {
       return res.status(400).json({ message: "Title is already taken" });
     }
 
+    // Create the new book
     const newBook = await Book.create({ code, title, author, stock: 1 });
     res.status(201).json(newBook);
   } catch (error) {
     res.status(500).json({ message: error.message });
-  }
-};
-
-// Get all books
-exports.getAllBooks = async (req, res) => {
-  try {
-    const books = await Book.findAll({
-      where: {
-        deleted_at: null,
-      },
-    });
-    res.status(200).json(books);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
-// Get a single book by ID
-exports.getBookById = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const book = await Book.findByPk(id);
-    if (book) {
-      res.status(200).json(book);
-    } else {
-      res.status(404).json({ message: "Book not found" });
-    }
-  } catch (error) {
-    res.status(500).json({ error: error.message });
   }
 };
 
@@ -102,7 +103,7 @@ exports.updateBook = async (req, res) => {
 
     // Update the book
     const [updated] = await Book.update(
-      { code, title, author, stock },
+      { code, title, author, stock, updated_at: new Date() },
       {
         where: { id },
       }
@@ -110,7 +111,7 @@ exports.updateBook = async (req, res) => {
     
     if (updated) {
       const updatedBook = await Book.findByPk(id);
-      res.status(200).json(updatedBook);
+      res.status(200).json({updatedBook, message: "Book has been updated"});
     } else {
       res.status(404).json({ message: "Book not found" });
     }

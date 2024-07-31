@@ -18,15 +18,34 @@ const Member = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    loan_book_amount: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+    },
     penalty_end_date: {
       type: DataTypes.DATE,
       allowNull: true,
     },
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: false, 
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+    },
+    deleted_at: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: null,
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+    },
   },
   {
-    tableName: 'members',
-    timestamps: false, 
-  } 
+    tableName: "members",
+    timestamps: false,
+  }
 );
 
 module.exports = Member;
