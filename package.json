@@ -4,8 +4,9 @@
 	"description": "Library management system using Express.js and MySQL",
 	"main": "app.js",
 	"scripts": {
-	  "start": "node app.js",
-	  "dev": "nodemon app.js"
+		"start": "node app.js",
+		"dev": "nodemon app.js",
+		"test": "jest"
 	},
 	"dependencies": {
 		"body-parser": "^1.20.2",
