@@ -1,7 +1,7 @@
 const BorrowedBook = require('../models/borrowedBook.model');
 const Book = require('../models/book.model');
 const Member = require('../models/member.model');
-const { Op } = require('sequelize');
+// const { Op } = require('sequelize');
 
 // Function to borrow a book
 exports.borrowBook = async (req, res) => {

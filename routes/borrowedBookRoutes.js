@@ -3,7 +3,7 @@ const router = express.Router();
 const BorrowedBook = require("../models/borrowedBook.model");
 const Book = require("../models/book.model");
 const Member = require("../models/member.model");
-const { Op } = require("sequelize");
+// const { Op } = require("sequelize");
 
 /**
  * @swagger
@@ -43,7 +43,7 @@ router.get("/borrowedBooks", async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-});
+}); 
 
 /**
  * @swagger

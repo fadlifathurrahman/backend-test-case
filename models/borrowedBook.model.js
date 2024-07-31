@@ -42,6 +42,7 @@ const BorrowedBook = sequelize.define(
     defaultValue: 0,
   },
 }, {
+  tableName: 'borrowed_books',
   timestamps: false,
 });
 

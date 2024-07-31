@@ -24,6 +24,7 @@ const Member = sequelize.define(
     },
   },
   {
+    tableName: 'members',
     timestamps: false, 
   } 
 );

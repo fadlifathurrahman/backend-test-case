@@ -26,8 +26,24 @@ const Book = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+    },
+    deleted_at: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: null,
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+    },
   },
   {
+    tableName: "books",
     timestamps: false,
   }
 );
