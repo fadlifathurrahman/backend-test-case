@@ -19,9 +19,6 @@
     - [ ]  Shows all existing members
     - [ ]  The number of books being borrowed by each member
 
-Berikut adalah contoh file README untuk repository GitHub Anda:
-
----
 
 # How to Start
 Repository ini berisi aplikasi backend yang dikembangkan menggunakan Node.js, Express.js, dan MySQL. Aplikasi ini menyediakan berbagai endpoint untuk pengujian dan diatur menggunakan `pnpm`.
