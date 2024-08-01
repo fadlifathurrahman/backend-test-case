@@ -1,9 +1,7 @@
 # Backend Test Case
 
-## Entities
-
-- Member
-- Book
+## Data Flow Diagram
+![dfd](https://github.com/user-attachments/assets/9eea311d-5c8a-4b5a-beab-d1015110f2d3)
 
 ## Use Case
 
@@ -21,78 +19,62 @@
     - [ ]  Shows all existing members
     - [ ]  The number of books being borrowed by each member
 
-## Mock Data
+Berikut adalah contoh file README untuk repository GitHub Anda:
 
-- Books
+---
 
-```tsx
-[
-    {
-        code: "JK-45",
-        title: "Harry Potter",
-        author: "J.K Rowling",
-        stock: 1
-    },
-    {
-        code: "SHR-1",
-        title: "A Study in Scarlet",
-        author: "Arthur Conan Doyle",
-        stock: 1
-    },
-    {
-        code: "TW-11",
-        title: "Twilight",
-        author: "Stephenie Meyer",
-        stock: 1
-    },
-    {
-        code: "HOB-83",
-        title: "The Hobbit, or There and Back Again",
-        author: "J.R.R. Tolkien",
-        stock: 1
-    },
-    {
-        code: "NRN-7",
-        title: "The Lion, the Witch and the Wardrobe",
-        author: "C.S. Lewis",
-        stock: 1
-    },
-]
+# How to Start
+Repository ini berisi aplikasi backend yang dikembangkan menggunakan Node.js, Express.js, dan MySQL. Aplikasi ini menyediakan berbagai endpoint untuk pengujian dan diatur menggunakan `pnpm`.
+
+## Persyaratan Sistem
+
+Pastikan sistem Anda memiliki perangkat lunak berikut:
+- Node.js (versi terbaru)
+- `pnpm` (paket manajer yang diinstal secara global)
+- MySQL (versi terbaru)
+
+## Instalasi
+
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/fadlifathurrahman/backend-test-case.git
+   cd backend-test-case
+   ```
+
+2. **Instalasi Dependencies**
+   Pastikan `pnpm` telah terinstal. Jika belum, Anda bisa menginstalnya dengan:
+   ```bash
+   npm install -g pnpm
+   ```
+   Setelah `pnpm` terinstal, jalankan perintah berikut untuk menginstal dependencies:
+   ```bash
+   pnpm install
+   ```
+
+## Pengaturan Database
+
+1. **Buat Database**
+   Pastikan Anda memiliki server MySQL yang berjalan. Buat database baru untuk aplikasi ini.
+
+2. **Konfigurasi Koneksi Database**
+   Sesuaikan konfigurasi database di file `.env` atau file konfigurasi yang relevan dengan kredensial database Anda.
+
+## Menjalankan Aplikasi
+
+Setelah semua dependensi diinstal dan database diatur, jalankan aplikasi dengan perintah berikut:
+
+```bash
+pnpm start
 ```
 
-- Members
+Aplikasi ini akan berjalan pada port yang ditentukan di file konfigurasi (default: 3000). Anda dapat mengakses API melalui `http://localhost:3000`.
 
-```tsx
-[
-    {
-        code: "M001",
-        name: "Angga",
-    },
-    {
-        code: "M002",
-        name: "Ferry",
-    },
-    {
-        code: "M003",
-        name: "Putri",
-    },
-]
-```
+## Pengujian API
 
-## Requirements
+Untuk pengujian API, aplikasi ini menggunakan Swagger sebagai dokumentasi dan alat pengujian. Ikuti langkah-langkah berikut untuk mengakses Swagger:
 
-- [ ]  it should be use any framework, but prefered [NestJS](https://nestjs.com/) Framework Or [ExpressJS](https://expressjs.com/)
-- [ ]  it should be use Swagger as API Documentation
-- [ ]  it should be use Database (SQL/NoSQL)
-- [ ]  it should be open sourced on your github repo
+1. Jalankan aplikasi dengan `pnpm start` seperti yang dijelaskan sebelumnya.
+2. Buka browser Anda dan navigasikan ke `http://localhost:3000/api-docs` untuk mengakses antarmuka Swagger.
+3. Di sini, Anda dapat melihat dokumentasi API dan menguji endpoint yang tersedia.
 
-## Extras
-
-- [ ]  Implement [DDD Pattern]([https://khalilstemmler.com/articles/categories/domain-driven-design/](https://khalilstemmler.com/articles/categories/domain-driven-design/))
-- [ ]  Implement Unit Testing
-
-## Notes
-- Feel free to add some structure or plugins
-
-
-------
+---
